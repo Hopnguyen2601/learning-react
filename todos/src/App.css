@@ -47,8 +47,21 @@ table {
   border-spacing: 0;
 }
 
+/* Common color */
+:root {
+  --primary: #675bf1;
+  --white: #fff;
+  /* task's status */
+  --new: #04be00;
+  --doing: #3713ec;
+  --done: #091e02;
+  --renew: #f47171;
+}
+
 /* Style for body content */
 .container {
-  width: 1024px;
-  margin: 15px auto;
+  background: rgba(22,66,177,.58);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
 }
