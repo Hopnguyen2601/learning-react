@@ -1,36 +1,24 @@
-import { useState } from 'react';
-import Pagination from './components/Pagination/pagination';
-import TodoList from './components/TodoList/todoList';
-import Header from './layout/Header/header';
-import Sidebar from './layout/Sidebar/sidebar';
-import { MODE } from './constants';
-import AddNewForm from './shared/Form';
-import './App.css';
-
+import { useState } from "react";
+import Pagination from "./components/Pagination";
+import TodoList from "./components/TodoList";
+import Header from "./layout/Header";
+import Sidebar from "./layout/Sidebar";
+import "./App.css";
 
 function App() {
-  const [renderMode, setRenderMode] = useState(MODE.SHOW_LIST);
-  const handleChangeRenderMode = (mode = MODE.ADD_NEW) => {
-    setRenderMode(mode);
-  };
-
   return (
     <div className="App">
-      <Header handleCreateNewTask={() => handleChangeRenderMode(MODE.ADD_NEW)} />
+      <Header />
 
-      <div className='container'>
-        <Sidebar handleListProducts={() => handleChangeRenderMode(MODE.SHOW_LIST)} />
-        <div className='main-content'>
-         {renderMode === MODE.SHOW_LIST ?
-          (
-            <>
-              <TodoList />
-              <Pagination />
-            </>
-          ) : <AddNewForm handleSubmit={() => {}} /> }
-        </div>
+      <div className="container">
+        <Sidebar />
+        <main className="main-content">
+          <>
+            <TodoList />
+            <Pagination />
+          </>
+        </main>
       </div>
-
     </div>
   );
 }

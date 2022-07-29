@@ -1,23 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-Button.propTypes = {
-
-};
+import React from "react";
+import "./styles.scss";
 
 function Button(props) {
-  const { buttonClass, title, style, onClick, type } = props;
-
-  return (
-    <div
-      className={`buttonClass ${buttonClass}`}
-      style={style}
-      onClick={onClick}
-      type={type}
-    >
-      {title}
-    </div>
-  );
+  return <button className="btn">Create New Task</button>;
 }
 
 export default Button;
