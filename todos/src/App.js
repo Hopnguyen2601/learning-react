@@ -1,7 +1,6 @@
-import { useState } from "react";
-import Pagination from "./components/Pagination";
-import TodoList from "./components/TodoList";
+import { Route, Routes } from "react-router-dom";
 import Header from "./layout/Header";
+import Home from "./layout/Home";
 import Sidebar from "./layout/Sidebar";
 import "./App.css";
 
@@ -13,10 +12,9 @@ function App() {
       <div className="container">
         <Sidebar />
         <main className="main-content">
-          <>
-            <TodoList />
-            <Pagination />
-          </>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
         </main>
       </div>
     </div>

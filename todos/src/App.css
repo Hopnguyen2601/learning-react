@@ -138,10 +138,8 @@ p {
   --primary: #675bf1;
   /* color name */
   --white: #fff;
-  /* task's status */
-  --new: #04be00;
-  --doing: #f88f14;
-  --done: #675bf1;
+  --orange: #f88f14;
+  --green: #04be00;
 }
 
 /* Style for body content */

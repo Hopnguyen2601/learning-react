@@ -2,7 +2,7 @@ import React from "react";
 import TodoItem from "../TodoItem";
 import "./styles.scss";
 
-function TodoList(props) {
+function TodoList() {
   const tasksList = [
     {
       id: 1,

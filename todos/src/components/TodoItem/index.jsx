@@ -3,19 +3,17 @@ import "./styles.scss";
 
 const ALL_STATUS = ["New", "Doing", "Done"];
 
-function TodoItem({ item, idx }) {
+function TodoItem({ item }) {
   const [status, setStatus] = useState(item.status);
 
   const changeStatus = (e) => {
-    const currentOrder = parseInt(e.target.value);
-    const currentStatus = ALL_STATUS.find(
-      (item) => item.order === currentOrder
-    ).status;
+    const currentStatus = e.target.value;
+
     setStatus(currentStatus);
   };
 
   return (
-    <li key={idx}>
+    <li key={item.id}>
       <div className="task">
         <p className="task__title">Title: {item.title}</p>
         <p className="task__creator">Creator: {item.creator}</p>

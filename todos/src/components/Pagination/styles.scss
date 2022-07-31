@@ -5,8 +5,8 @@
   display: flex;
   width: 150px;
   height: 30px;
-  border: 1px solid var(--primary);
   border-radius: 10px;
+  border: 1px solid var(--primary);
   background-color: var(--white);
 
   & > div {

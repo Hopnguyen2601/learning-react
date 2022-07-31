@@ -1,14 +1,12 @@
-.nav {
+.sidebar {
   width: 150px;
-  height: calc(100vh - 100px);
-  background-color: #f88f14;
-
+  height: calc(100vh - 76px);
+  background-color: var(--orange);
+  flex: none;
+}
+.nav {
   &__item {
-    height: 40px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 5px 10px;
     border-bottom: 2px solid white;
 
     & > a {

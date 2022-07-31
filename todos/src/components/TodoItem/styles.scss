@@ -25,13 +25,13 @@
   /* <--- status color */
   &__status {
     &--new {
-      color: var(--new);
+      color: var(--green);
     }
     &--doing {
-      color: var(--doing);
+      color: var(--orange);
     }
     &--done {
-      color: var(--done);
+      color: var(--primary);
     }
   }
 

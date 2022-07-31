@@ -1,35 +1,27 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import "./styles.scss";
 
 Sidebar.propTypes = {};
 
-function Sidebar(props) {
-  const { handleListProducts } = props;
-
+function Sidebar() {
   return (
-    <ul className="nav">
-      <li className="nav__item">
-        <a href="javascript:void(0)" onClick={handleListProducts}>
-          All Tasks
-        </a>
-      </li>
-      <li className="nav__item">
-        <a href="javascript:void(0)" onClick={handleListProducts}>
-          New Task
-        </a>
-      </li>
-      <li className="nav__item">
-        <a href="javascript:void(0)" onClick={handleListProducts}>
-          Doing Task
-        </a>
-      </li>
-      <li className="nav__item">
-        <a href="javascript:void(0)" onClick={handleListProducts}>
-          Done Task
-        </a>
-      </li>
-    </ul>
+    <div className="sidebar">
+      <ul className="nav">
+        <li className="nav__item">
+          <Link to="/"> All Tasks</Link>
+        </li>
+        <li className="nav__item">
+          <Link to="/new">New Tasks</Link>
+        </li>
+        <li className="nav__item">
+          <Link to="/doing">Doing Tasks</Link>
+        </li>
+        <li className="nav__item">
+          <Link to="/done">Done Tasks</Link>
+        </li>
+      </ul>
+    </div>
   );
 }
 

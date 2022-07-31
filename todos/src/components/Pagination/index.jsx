@@ -1,10 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./styles.scss";
 
-Pagination.propTypes = {};
-
-function Pagination(props) {
+function Pagination() {
   return (
     <div className="pagination">
       <div className="pagination__page">{"<"}</div>

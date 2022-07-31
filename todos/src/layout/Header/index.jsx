@@ -1,17 +1,12 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./styles.scss";
 import Button from "../../components/Button";
 import SearchForm from "../../components/SearchForm";
 
-Header.propTypes = {};
-
-function Header(props) {
-  const { handleCreateNewTask } = props;
-
+function Header() {
   return (
     <div className="main-header">
-      <Button />
+      <Button title="Create New Task" />
       <SearchForm />
     </div>
   );
