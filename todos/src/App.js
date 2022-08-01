@@ -3,6 +3,7 @@ import Header from "./layout/Header";
 import Home from "./layout/Home";
 import Sidebar from "./layout/Sidebar";
 import "./App.css";
+import TaskForm from "./components/TaskForm";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/add" element={<TaskForm />} />
           </Routes>
         </main>
       </div>

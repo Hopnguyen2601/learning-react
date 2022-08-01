@@ -2,11 +2,14 @@ import React from "react";
 import "./styles.scss";
 import Button from "../../components/Button";
 import SearchForm from "../../components/SearchForm";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <div className="main-header">
-      <Button title="Create New Task" />
+      <Link to="/add">
+        <Button title="Create New Task" />
+      </Link>
       <SearchForm />
     </div>
   );
