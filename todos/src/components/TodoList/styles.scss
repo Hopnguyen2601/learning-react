@@ -1,0 +1,10 @@
+.tasks {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+
+  & > li {
+    padding-right: 15px;
+    flex: 0 1 25%;
+  }
+}

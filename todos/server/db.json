@@ -1,0 +1,25 @@
+{
+  "taskList": [
+    {
+      "id": 1,
+      "title": "Task 1",
+      "creator": "author 1",
+      "status": "New",
+      "description": "This is task 1"
+    },
+    {
+      "id": 3,
+      "title": "Task 3",
+      "creator": "author 3",
+      "status": "Doing",
+      "description": "This is task 3"
+    },
+    {
+      "id": 4,
+      "title": "Task 4",
+      "creator": "author 4",
+      "status": "Done",
+      "description": "This is task 4"
+    }
+  ]
+}
