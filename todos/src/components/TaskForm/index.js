@@ -1,36 +1,38 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+import { URL } from "../../constants";
 
-TaskForm.propTypes = {};
-
-function TaskForm(props) {
+function TaskForm() {
   const [formValue, setFormValue] = useState({
     title: "",
     author: "",
     description: "",
-    status: "new",
+    status: "New",
   });
 
-  const handleChangeFile = (e) => {
+  const handleChangeFile = (event) => {
     setFormValue({
       ...formValue,
-      [e.target.name]: e.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
-  const handleChangeForm = (e) => {
-    // prevent page reload
+  const handleCreateTask = (e) => {
     e.preventDefault();
-
-    // Valid felds
-
-    localStorage.setItem("data", JSON.stringify(formValue));
-
-    // navigate to "/taskList" (Home page)
+    // Call post API
+    console.log(formValue);
+    fetch(URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formValue),
+    })
+      .then((response) => response.json())
+      .catch((error) => console.log(error));
   };
 
   return (
-    <form onSubmit={handleChangeForm}>
+    <form onSubmit={handleCreateTask}>
       <label>Title: </label>
       <input
         type="text"

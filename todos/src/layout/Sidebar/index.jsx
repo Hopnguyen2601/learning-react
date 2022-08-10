@@ -1,27 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./styles.scss";
 
 Sidebar.propTypes = {};
 
 function Sidebar() {
   return (
-    <div className="sidebar">
+    <nav className="sidebar">
       <ul className="nav">
         <li className="nav__item">
-          <Link to="/"> All Tasks</Link>
+          <a href="/">All Tasks</a>
+          {/* <Link to="/">All Tasks</Link> */}
         </li>
         <li className="nav__item">
-          <Link to="/new">New Tasks</Link>
+          <a href="/newtasks">New Tasks</a>
+          {/* <Link to="/newtasks">New Tasks</Link> */}
         </li>
         <li className="nav__item">
-          <Link to="/doing">Doing Tasks</Link>
+          <a href="/doingtasks">Doing Tasks</a>
+          {/* <Link to="/doingtasks">Doing Tasks</Link> */}
         </li>
         <li className="nav__item">
-          <Link to="/done">Done Tasks</Link>
+          <a href="/donetasks">Done Tasks</a>
+          {/* <Link to="/donetasks">Done Tasks</Link> */}
         </li>
       </ul>
-    </div>
+    </nav>
   );
 }
 
