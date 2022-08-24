@@ -46,7 +46,7 @@ function CreateForm(props) {
     setProduct({ ...product, [name]: value });
     setErrorValidate({
       ...errorValidate,
-      ["name"]: "",
+      name: "",
     });
   };
 
@@ -57,21 +57,10 @@ function CreateForm(props) {
 
       setErrorValidate({
         ...errorValidate,
-        ["name"]: "This field is required!",
+        name: "This field is required!",
       });
       return true;
     }
-
-    // // Check null Quantity
-    // if (!product.name) {
-    //   errorValidate["quantity"] = "This field is required!";
-
-    //   setErrorValidate({
-    //     ...errorValidate,
-    //     ["quantity"]: "This field is required!",
-    //   });
-    //   return true;
-    // }
 
     return false;
   };

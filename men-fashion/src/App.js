@@ -9,10 +9,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Routes>
-        <Route path="/products" element={<ProductList />} />
-        <Route path="/products/add" element={<CreateForm />} />
-      </Routes>
+      <div className="container">
+        <Routes>
+          <Route path="/products" element={<ProductList />} />
+          <Route path="/products/add" element={<CreateForm />} />
+        </Routes>
+      </div>
     </div>
   );
 }

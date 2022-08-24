@@ -1,16 +1,40 @@
-import React from "react";
-import productStore from "../../stores/ProductStore";
-import { observer } from "mobx-react";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { observer } from 'mobx-react';
+import { Button } from '@material-ui/core';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import CartsNum from '../../components/CartsNum';
 
-Header.propTypes = {};
+import './styles.scss';
+import { useDispatch } from 'react-redux';
+import { toggleOpenCart } from '../../redux/Shopping/shopping-actions';
 
-function Header(props) {
+function Header() {
+  const dispatch = useDispatch();
+
+  const handleOpen = () => {
+    dispatch(toggleOpenCart());
+  };
+
   return (
-    <div>
-      <button type="button" onClick={productStore.openModal}>
-        Open Cart
-      </button>
-    </div>
+    <header className="header">
+      <div className="header__wrapper">
+        <Link to={'/products'} className="header__logo">
+          <h1>MEN FASHION</h1>
+        </Link>
+        <nav className="header__menu">
+          <Link to={'/products/add'} className="header__menu__item">
+            Add New Product
+          </Link>
+          <Button onClick={handleOpen}>
+            <ShoppingCartIcon />
+
+            <CartsNum cartCount={6} />
+          </Button>
+        </nav>
+      </div>
+      <div></div>
+    </header>
   );
 }
 

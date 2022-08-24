@@ -1,48 +1,57 @@
-import { Grid } from "@material-ui/core";
-import { observer } from "mobx-react";
-import React, { useEffect, useState } from "react";
-import cartApi from "../../apis/cartApi";
-import productApi from "../../apis/productApi";
-import productStore from "../../stores/ProductStore";
-import CartModal from "../CartModal";
-import Product from "../Product";
+import React, { useEffect, useState } from 'react';
+import { Box, Grid, Typography } from '@material-ui/core';
+import CartModal from '../CartModal';
+import Product from '../Product';
+import SkeletonProduct from '../Skeleton';
+import { connect, useDispatch, useSelector } from 'react-redux';
+import { fetchProductsRequest } from '../../redux/Shopping/shopping-actions';
 
-function ProductList(props) {
-  const [products, setProducts] = useState([]);
+function ProductList({ products, fetchProductList }) {
+  const [loading, setLoading] = useState(false);
+  // const products = useSelector((state) => state.shop.products);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await productApi.getAll();
-        setProducts(response.data);
-      } catch (error) {
-        console.log("Fail to fetch product list: ", error);
-      }
-    })();
-  }, []);
+  // const dispatch = useDispatch();
 
-  const addCart = async (productSelected) => {
-    const response = await cartApi.add(productSelected);
-
-    // Check reponse
-    if (response.status === 201) {
-      productStore.reFetchCarts();
-      alert("Add this product into cart");
-    }
-  };
+  // useEffect(() => {
+  //   dispatch(fetchProductsRequest());
+  // }, [dispatch]);
 
   return (
-    <div>
-      <CartModal />
-      <Grid container spacing={2}>
-        {products.map((item, index) => (
-          <Grid key={index} item sm={3} xs={6}>
-            <Product product={item} addCart={addCart} />
-          </Grid>
-        ))}
-      </Grid>
-    </div>
+    <>
+      <Box sx={{ flexGrow: 1 }}>
+        {loading ? (
+          <SkeletonProduct />
+        ) : (
+          <>
+            <CartModal />
+            <Typography variant="h5" classes={{ h5: 'text-left' }}>
+              Total: {products.length}
+            </Typography>
+            <Grid container spacing={3}>
+              {products.map((product, index) => (
+                <Grid item xs={6} sm={4} md={3} key={index}>
+                  <Product product={product} />
+                </Grid>
+              ))}
+            </Grid>
+            <button onClick={() => fetchProductList()}>Fetch Products</button>
+          </>
+        )}
+      </Box>
+    </>
   );
 }
 
-export default observer(ProductList);
+const mapStateToProps = (state) => {
+  return {
+    products: state.shop.products,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchProductList: () => dispatch(fetchProductsRequest()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

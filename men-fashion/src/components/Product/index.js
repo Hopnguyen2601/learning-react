@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Card,
   CardActionArea,
@@ -6,47 +6,71 @@ import {
   CardContent,
   CardMedia,
   Typography,
-} from "@material-ui/core";
-import ButtonText from "../common/Button";
+} from '@material-ui/core';
+import { useDispatch } from 'react-redux';
+import ButtonText from '../common/Button';
 
-import "./styles.scss";
+import './styles.scss';
+import { addToCart } from '../../redux/Shopping/shopping-actions';
 
 Product.propTypes = {};
 
-function Product({ product, addCart }) {
+function Product({ product }) {
   // Learn more
-  new Intl.NumberFormat("vi-VN", {
-    style: "currency",
-    currency: "VND",
+  new Intl.NumberFormat('vi-VN', {
+    style: 'currency',
+    currency: 'VND',
   }).format(product.price);
+
+  const dispatch = useDispatch();
 
   // 100.000.000
 
+  // useDispatch, useSelector
+  // connect(mapStateToProps, mapDispatchToProps)
+
+  // Call to reducer
+  const handleAddCart = (productId) => {
+    console.log('Hello', productId);
+    dispatch(addToCart(productId));
+  };
+
   return (
-    <Card classes={{ root: "card-product" }}>
+    <Card classes={{ root: 'card-product' }}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
           image={product.image}
-          alt="yellow "
+          alt="men fashion"
         />
-        <CardContent>
-          <Typography
-            classes={{ h5: "card-product__name" }}
-            gutterBottom
-            variant="h5"
-            component="h5"
-          >
-            {product.name}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {product.price}
-          </Typography>
-        </CardContent>
       </CardActionArea>
-      <CardActions>
-        <button onClick={() => addCart(product)}> Add to cart </button>
+      <CardContent>
+        <Typography
+          gutterBottom
+          variant="body1"
+          component="div"
+          classes={{ body1: 'card-product__name' }}
+        >
+          {product.name}
+        </Typography>
+        <Typography variant="body1" classes={{ body1: 'card-product__price' }}>
+          {new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+          }).format(product.price)}
+        </Typography>
+        <Typography variant="body2" color="textPrimary">
+          Quantity: {product.quantity}
+        </Typography>
+      </CardContent>
+      <CardActions classes={{ root: 'card-product__action' }}>
+        {/* <ButtonText
+          onClick={() => handleAddCart(product.id)}
+          size="small"
+          text="Add to cart"
+        /> */}
+        <button onClick={() => handleAddCart(product.id)}>Add to cart</button>
       </CardActions>
     </Card>
   );

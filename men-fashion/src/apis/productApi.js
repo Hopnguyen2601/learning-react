@@ -17,12 +17,6 @@ const productApi = {
     const response = await axiosClient.post(url, data);
     return response;
   },
-
-  async remove(id) {
-    const url = `products/${id}/`;
-    const response = await axiosClient.delete(url);
-    return response;
-  },
 };
 
 export default productApi;

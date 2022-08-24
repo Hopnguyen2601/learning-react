@@ -4,16 +4,26 @@ import { Button } from "@material-ui/core";
 
 ButtonText.propTypes = {
   type: PropTypes.string,
+  onActionClick: PropTypes.func,
+  size: PropTypes.string,
 };
 
 ButtonText.defaultProps = {
   type: "button",
+  onActionClick: null,
+  size: "medium",
 };
 
-function ButtonText({ text, type }) {
+function ButtonText({ text, type, onActionClick, size }) {
   return (
     <div>
-      <Button type={type} size="small" color="primary">
+      <Button
+        onClick={onActionClick}
+        variant="contained"
+        color="primary"
+        type={type}
+        size={size}
+      >
         {text}
       </Button>
     </div>

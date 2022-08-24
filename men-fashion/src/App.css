@@ -2,7 +2,7 @@
 :root {
   --green: #133ff2;
   --white: #fff;
-  --brow: #a1a1a5;
+  --brown: #a52a2a;
 }
 
 .App {
@@ -42,4 +42,22 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+/* Common styles for text */
+.title {
+  color: var(--white);
+  text-align: center;
+  padding: 16px;
+}
+
+.text-left {
+  text-align: left;
+  margin: 20px 0;
 }

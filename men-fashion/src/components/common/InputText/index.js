@@ -14,9 +14,10 @@ InputText.defaultProps = {
 
 function InputText({ label, name, value, onChangeField, type }) {
   return (
-    <FormControl classes={{ root: "form__control" }}>
+    <FormControl classes={{ root: "form__wrapper" }}>
       <span className="form__label">{label}</span>
       <TextField
+        fullWidth
         name={name}
         value={value}
         onChange={onChangeField}
@@ -25,7 +26,7 @@ function InputText({ label, name, value, onChangeField, type }) {
         InputLabelProps={{
           shrink: true,
         }}
-        className="form__input"
+        classes={{ root: "form-control" }}
       ></TextField>
     </FormControl>
   );
