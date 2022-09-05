@@ -1,0 +1,3 @@
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const FETCH_PRODUCT_LIST = 'FETCH_PRODUCT_LIST';
+export const TOGGLE_OPEN_CART = 'TOGGLE_OPEN_CART';
