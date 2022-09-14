@@ -18,6 +18,7 @@ function ProductList({ products, fetchProductList }) {
 
   return (
     <>
+      <h2>List products</h2>
       <Box sx={{ flexGrow: 1 }}>
         {loading ? (
           <SkeletonProduct />
