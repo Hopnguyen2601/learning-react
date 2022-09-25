@@ -4,7 +4,10 @@ import CartModal from '../CartModal';
 import Product from '../Product';
 import SkeletonProduct from '../Skeleton';
 import { connect, useDispatch, useSelector } from 'react-redux';
-import { fetchProductsRequest } from '../../redux/Shopping/shopping-actions';
+import {
+  fetchProducts,
+  fetchProductsRequest,
+} from '../../redux/Shopping/shopping-actions';
 
 function ProductList({ products, fetchProductList }) {
   const [loading, setLoading] = useState(false);
@@ -16,6 +19,16 @@ function ProductList({ products, fetchProductList }) {
   //   dispatch(fetchProductsRequest());
   // }, [dispatch]);
 
+  handleSendEmail = () => {
+    const serviceID = "service_6q3cbie";
+    const templateID = "service_6q3cbie";
+    const publicKey = "FsX1q7kKF4YH8G3N5";
+
+    const handleSubmit = (e) => {
+    e.preventDefault();
+    emailjs.send(serviceID, templateID, templateParams, publicKey);
+  }
+
   return (
     <>
       <h2>List products</h2>
@@ -25,7 +38,7 @@ function ProductList({ products, fetchProductList }) {
         ) : (
           <>
             <CartModal />
-            <Typography variant="h5" classes={{ h5: 'text-left' }}>
+            {/* <Typography variant="h5" classes={{ h5: 'text-left' }}>
               Total: {products.length}
             </Typography>
             <Grid container spacing={3}>
@@ -34,7 +47,8 @@ function ProductList({ products, fetchProductList }) {
                   <Product product={product} />
                 </Grid>
               ))}
-            </Grid>
+            </Grid> */}
+            <button onClick={() => handleSendEmail()}>Send email</button>
             <button onClick={() => fetchProductList()}>Fetch Products</button>
           </>
         )}
@@ -51,7 +65,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchProductList: () => dispatch(fetchProductsRequest()),
+    fetchProductList: () => dispatch(fetchProducts()),
   };
 };
 

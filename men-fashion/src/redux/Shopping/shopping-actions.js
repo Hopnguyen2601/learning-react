@@ -29,7 +29,17 @@ export const fetchProductsRequest = () => {
   };
 };
 
-const fetchProducts = (products) => ({
+export const fetchProducts = (products) => ({
   type: actionTypes.FETCH_PRODUCT_LIST,
+  payload: products,
+});
+
+export const fetchProductSuccess = (products) => ({
+  type: actionTypes.FETCH_PRODUCT_LIST_SUCCESS,
+  payload: products,
+});
+
+export const fetchProductFailed = (products) => ({
+  type: actionTypes.FETCH_PRODUCT_FAILED,
   payload: products,
 });
