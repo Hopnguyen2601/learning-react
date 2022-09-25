@@ -19,16 +19,6 @@ function ProductList({ products, fetchProductList }) {
   //   dispatch(fetchProductsRequest());
   // }, [dispatch]);
 
-  handleSendEmail = () => {
-    const serviceID = "service_6q3cbie";
-    const templateID = "service_6q3cbie";
-    const publicKey = "FsX1q7kKF4YH8G3N5";
-
-    const handleSubmit = (e) => {
-    e.preventDefault();
-    emailjs.send(serviceID, templateID, templateParams, publicKey);
-  }
-
   return (
     <>
       <h2>List products</h2>
@@ -48,7 +38,6 @@ function ProductList({ products, fetchProductList }) {
                 </Grid>
               ))}
             </Grid> */}
-            <button onClick={() => handleSendEmail()}>Send email</button>
             <button onClick={() => fetchProductList()}>Fetch Products</button>
           </>
         )}
